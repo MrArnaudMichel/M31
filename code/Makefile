@@ -1,4 +1,3 @@
-#makefileH K
 TARGET_EXEC ?= tdm31
 
 BUILD_DIR ?= ./build
@@ -13,6 +12,7 @@ INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 CFLAGS ?= $(INC_FLAGS) -MMD -MP -O3
+LDFLAGS ?= -lm
 
 $(TARGET_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(MKDIR_P) $(dir $@)

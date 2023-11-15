@@ -3,8 +3,9 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <math.h>
+
+#include "function.h"
 
 double rand_base(){
     return rand()/(double )(RAND_MAX);
@@ -141,9 +142,27 @@ double exp_density(double lambda){
     return lambda * exp(-lambda);
 }
 
+double g_x(double x){
+    return sqrt(1 - x*x);
+}
 
+double monteCarlo(int n){
+    int somme = 0;
+    for (int i = 0; i < n; ++i) {
+        struct coordonnee coordonnee;
+        coordonnee.x = rand_base();
+        coordonnee.y = rand_base();
+        if (coordonnee.y < g_x(coordonnee.x)){
+            somme++;
+        }
+    }
+    return (double)somme/n;
+}
 
-int main(int argc, char* argv[]){
-    printf("%f\n", exp_density(atof(argv[1])));
-    return 0;
+double monteCarlo2(int n){
+    double somme = 0;
+    for (int i = 0; i < n; ++i) {
+        somme += g_x(rand_base());
+    }
+    return (double)somme/n;
 }
