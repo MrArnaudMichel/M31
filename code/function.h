@@ -4,9 +4,6 @@
 
 #ifndef M31_TD_H
 #define M31_TD_H
-//
-// Created by arnau on 21/09/2023.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
