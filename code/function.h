@@ -45,7 +45,4 @@ double monteCarlo(int n);
 
 double monteCarlo2(int n);
 
-void standard_normal(double* sample);
-double* normal_sample(double mu, double sigma, int n);
-
 #endif //M31_TD_H
