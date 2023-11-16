@@ -210,3 +210,22 @@ double* normal_sample(double mu, double sigma, int n){
     }
     return sample;
 }
+
+double *max_sample(unsigned int n){
+    // Simulation la réalisation de la v.a T = max(T1, T2) où T1 et T2 sont deux variables définis sur le meme espace probabilisé.
+    // P(T <= x)
+    double* sample = malloc(n*sizeof(double));
+    int i;
+    for (i = 0; i < n; i++){
+        sample[i] = rand_base();
+    }
+    double somme = 0;
+    for (i = 0; i < n; i++){
+        somme += sample[i];
+    }
+    somme -= n/2;
+    for (i = 0; i < n; i++){
+        sample[i] = somme;
+    }
+    return sample;
+}
