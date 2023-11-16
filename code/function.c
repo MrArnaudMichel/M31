@@ -167,6 +167,15 @@ double monteCarlo2(int n){
     return (double)somme/n;
 }
 
+double monteCarlo_Exp(double lambda, int n){
+    // Calcul une valeur approché de la probabilité qu'une variable aléatoire suivant une loi exponentielle de paramètre lambda prenne une valeur entre 0 et 1, au moyen de tirage de n points.
+    double somme = 0;
+    for (int i = 0; i < n; ++i) {
+        somme += exp_density(rand_base());
+    }
+    return (double)somme/n;
+}
+
 void standard_normal(double* sample){
     int i;
     for (i = 0; i < 12; i++){

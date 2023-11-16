@@ -45,4 +45,6 @@ double monteCarlo(int n);
 
 double monteCarlo2(int n);
 
+double monteCarlo_Exp(double lambda, int n);
+
 #endif //M31_TD_H
